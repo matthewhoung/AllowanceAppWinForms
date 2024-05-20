@@ -27,81 +27,97 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            monthCalendar1 = new MonthCalendar();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            this.outsideCateringCheckBox = new System.Windows.Forms.CheckBox();
+            SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 46);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(228, 350);
-            this.textBox1.TabIndex = 0;
+            textBox1.Location = new Point(12, 12);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(228, 350);
+            textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(280, 46);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(228, 350);
-            this.textBox2.TabIndex = 1;
+            textBox2.Location = new Point(370, 12);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(228, 350);
+            textBox2.TabIndex = 1;
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(520, 46);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 2;
+            monthCalendar1.Location = new Point(610, 12);
+            monthCalendar1.Name = "monthCalendar1";
+            monthCalendar1.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(494, 409);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Sum";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.SumButton_Click);
+            button1.Location = new Point(504, 368);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 3;
+            button1.Text = "加總";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += SumButton_Click;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(594, 409);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 29);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Clear";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.ClearButton_Click);
+            button2.Location = new Point(258, 368);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 4;
+            button2.Text = "清除";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += ClearButton_Click;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(694, 409);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 29);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Calculate";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.CalculateButton_Click);
+            button3.Location = new Point(12, 368);
+            button3.Name = "button3";
+            button3.Size = new Size(94, 29);
+            button3.TabIndex = 5;
+            button3.Text = "計算";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += CalculateButton_Click;
+            // 
+            // checkBox1
+            // 
+            this.outsideCateringCheckBox = new System.Windows.Forms.CheckBox();
+            this.SuspendLayout();
+            // 
+            // outsideCateringCheckBox
+            // 
+            this.outsideCateringCheckBox.Location = new System.Drawing.Point(12, 412);
+            this.outsideCateringCheckBox.Name = "outsideCateringCheckBox";
+            this.outsideCateringCheckBox.Size = new System.Drawing.Size(104, 24);
+            this.outsideCateringCheckBox.TabIndex = 6;
+            this.outsideCateringCheckBox.Text = "Outside Catering";
+            this.outsideCateringCheckBox.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Name = "Form1";
-            this.Text = "Allowance App";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(9F, 19F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(890, 438);
+            Controls.Add(outsideCateringCheckBox);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Controls.Add(monthCalendar1);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
+            Name = "Form1";
+            Text = "Allowance App";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -112,5 +128,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.CheckBox outsideCateringCheckBox;
     }
 }

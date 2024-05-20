@@ -1,3 +1,4 @@
+using AllowanceApp.Data;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -9,6 +10,7 @@ namespace AllowanceApp
     public partial class Form1 : Form
     {
         private List<Expense> expenses = new List<Expense>();
+        private DatabaseHelper dbHelper = new DatabaseHelper();
 
         public Form1()
         {
@@ -33,14 +35,26 @@ namespace AllowanceApp
         {
             var startDate = monthCalendar1.SelectionStart;
             var endDate = monthCalendar1.SelectionEnd;
-            var filteredExpenses = expenses.Where(x => x.Date >= startDate && x.Date <= endDate).ToList();
+            var isOutsideCatering = outsideCateringCheckBox.Checked;
+
+            var filteredExpenses = dbHelper.GetExpenses(startDate, endDate);
 
             var summary = filteredExpenses
                 .GroupBy(x => x.Name)
                 .Select(g => new
                 {
                     Name = g.Key,
-                    Total = g.Sum(x => x.Amount)
+                    Total = g.Sum(x =>
+                    {
+                        if (x.Name.StartsWith("*") || isOutsideCatering)
+                        {
+                            return x.Amount;
+                        }
+                        else
+                        {
+                            return x.Amount - 100; // Deduct daily allowance
+                        }
+                    })
                 });
 
             textBox2.Clear();
@@ -49,6 +63,7 @@ namespace AllowanceApp
                 textBox2.AppendText($"{item.Name}: {item.Total:C}{Environment.NewLine}");
             }
         }
+
 
         private void ClearButton_Click(object sender, EventArgs e)
         {

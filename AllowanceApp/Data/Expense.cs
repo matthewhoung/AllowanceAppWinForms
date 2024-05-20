@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AllowanceApp
+namespace AllowanceApp.Data
 {
     public class Expense
     {
